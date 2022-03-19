@@ -2,20 +2,15 @@
 # 팰린드롬 만들기
 
 import sys
+import collections
 
 input = sys.stdin.readline
 
 name = input().rstrip() # 임한수의 영어 이름 입력
 
-char_dict = dict() # 문자와 문자의 개수를 저장할 딕셔너리
-
 ### 딕셔너리에 문자와 문자가 입력된 갯수 넣기 ###
-for i in range(len(name)):
-    if name[i] not in char_dict: # 딕셔너리에 문자가 없으면
-        char_dict[name[i]] = 1 # value = 1
-    else: # 딕셔너리에 문자가 이미 있으면
-        char_dict[name[i]] += 1 # +1
-
+# Counter클래스 이용하면 자동으로 문자가 입력된 개수 세줌
+char_dict = collections.Counter(name) # 문자와 문자의 개수를 저장할 딕셔너리
 
 count = 0 # value가 홀수인 알파벳 체크
 odd_char='' # value가 홀수인 알파벳

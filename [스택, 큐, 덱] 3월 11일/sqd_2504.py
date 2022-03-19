@@ -5,11 +5,17 @@ import sys
 
 input = sys.stdin.readline
 
-bracket = input().rstrip()
+bracket = input().rstrip() # 괄호 입력
 stack=[]
 
-for element in range(len(bracket)):
-    pass
+bracket_pair=dict()
+bracket_pair[')']='('
+bracket_pair[']']='['
+
+bracket_value=dict()
+bracket_value['('] = 2
+bracket_value['['] = 3
+
 
 
 

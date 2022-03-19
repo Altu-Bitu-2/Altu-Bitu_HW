@@ -2,6 +2,7 @@
 # 통계학
 
 import sys
+import collections
 
 input = sys.stdin.readline
 
@@ -28,12 +29,8 @@ n_list.sort() # 오름차순으로 정렬
 print(n_list[(number-1)//2]) 
 
 ####최빈값 출력####
-n_dict=dict() # 수와 수들이 입력된 횟수 저장하는 딕셔너리
-for i in range(len(n_list)):
-    if n_list[i] not in n_dict: # 딕셔너리에 수가 없으면
-        n_dict[n_list[i]] = 1 # value = 1
-    else: # 딕셔너리에 수가 이미 있으면
-        n_dict[n_list[i]] += 1 # +1
+n_dict=collections.Counter(n_list) # 수와 수들이 입력된 횟수 저장하는 딕셔너리
+
 # n_dict()를 value기준으로 내림차순 정렬, value가 같을 경우 key순으로 오름차순 정렬
 sorted_dict = sorted(n_dict.items(), key = lambda x: (-x[1], x[0]))
 
