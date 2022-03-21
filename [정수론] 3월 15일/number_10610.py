@@ -4,9 +4,8 @@
 import sys
 input = sys.stdin.readline
  
-n = int(input()) # n 입력
-str_int = str(n) # n을 문자열로 바꿔주기
-n_list = list(str_int) # 정렬 위해서 문자열로 바꿔준 n을 list로 바꿔주기
+n = input().rstrip() # n 입력 (input함수는 기본적으로 문자열로 입력받음)
+n_list = list(n) # 정렬 위해서 문자열로 바꿔준 n을 list로 바꿔주기
 
 # 30의 배수 => 3의 배수 & 10의 배수 모두 충족해야 함
 # 30의 배수를 만들기 위해서는 
@@ -19,7 +18,7 @@ for i in range(len(n_list)):
     sum += n_list[i] # sum변수에 요소들을 모두 더함
 
 # 요소의 합을 3으로 나눈 나머지가 0일 때 & 문자열 안에 0이 없지 않을 때(-1이면 없는 것)
-if sum % 3 == 0 and str_int.find('0') != -1: 
+if sum % 3 == 0 and n.find('0') != -1: 
     n_list.sort(reverse=True) # 내림차순 정렬
     for i in range(len(n_list)):
         print(n_list[i], end="")

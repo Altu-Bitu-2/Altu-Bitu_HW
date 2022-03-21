@@ -7,20 +7,21 @@ input = sys.stdin.readline
 
 factor = [] # 약수 리스트
 
-gcd, lcm = map(int, input().split())
+gcd, lcm = map(int, input().split()) # 최대공약수, 최소공배수 입력
 
 xy = lcm // gcd # 최소공배수를 최대공약수로 나눔
-# x의 약수를 구해서 리스트에 저장
 
+# xy의 약수를 구해서 리스트에 저장
 
 # x, y 구하기
-for i in range(1, xy+1):
+for i in range(1, int(xy**(1/2))+1): # !! 범위를 xy의 제곱근까지로 줄여주기 !!
     if (xy % i == 0) and math.gcd(i, xy//i) == 1: # xy의 약수이면서 서로소(최대공약수가 1)일 때
         factor.append((i, xy//i)) # 리스트에 넣어줌
 
-factor = factor[:len(factor)//2] # 중복 제거
-
 minimum = factor[0][0]+factor[0][1] # 최소 담는 변수
+# 밑에 반복문 안에 if에 해당되지 않을 경우(minimum의 초기값이 바뀌지 않았을 경우)에 대비해서
+x = factor[0][0] # x 초기값 미리 설정
+y = factor[0][1] # y 초기값 미리 설정 (설정 미리 안해주면 NameError 발생..)
 
 # 두 수의 합 최소가 되는 것 찾기
 for i in range(len(factor)):
@@ -28,7 +29,7 @@ for i in range(len(factor)):
         x = factor[i][0] # 각각의 수들을 저장해줌
         y = factor[i][1]
 
-print(gcd* x, gcd* y)
+print(gcd * x, gcd * y)
 
 """
 gcd ) A  B
