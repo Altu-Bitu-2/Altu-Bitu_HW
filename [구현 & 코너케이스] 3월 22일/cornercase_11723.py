@@ -21,10 +21,7 @@ for i in range(m):
     else: # 명령어 입력이 2개 일 경우 -> ex) add x, remove x, check x, toggle x
         number = int(calculate[1]) # 두 번째 입력을 int로 바꿔주기
         if calculate[0] == 'add': 
-            if number in s:
-                continue
-            else:
-                s.add(number)
+            s.add(number) # set는 중복제거 가능하므로 조건문 없어도 됨
 
         elif calculate[0] == 'remove':
             if number not in s:

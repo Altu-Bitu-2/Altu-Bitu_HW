@@ -23,15 +23,11 @@ for i in range(len(group_word)):
         else: # 현재 index != 이전 index
             stack[i].append(group_word[i][j]) # 현재 index를 stack 해당 위치의 리스트에 담아둠
 
-# 중복 판단해주는 함수
-def has_duplicate(line): # 중복일 경우 True 반환
-    return len(line) != len(set(line)) # 중복 제거했을 때 길이와 그냥 길이가 다르면 중복
-
 count = 0 # 그룹 단어 체크하는 변수
 
 # stack[0]~stack[-1]에서 중복된 문자가 있는지 확인하기
 for i in range(len(stack)):
-    if has_duplicate(stack[i]) == True: # 중복 있으면
+    if len(stack[i]) != len(set(stack[i])): # 중복 있으면
         continue # count 하지 않음
     else: # 중복 없으면
         count += 1 # count +1 해줌
