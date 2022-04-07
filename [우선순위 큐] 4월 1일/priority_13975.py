@@ -17,10 +17,12 @@ for i in range(t):
         file_list.append(temp)
         sum += temp
         file_list.pop(0)
-        file_list.pop(1)
+        file_list.pop(0)
         file_list.sort()
     print(sum)
-    file_list.clear()   
+    sum = 0 
+
+    # 시간 초과가 나는데 이유를 모르겠습니다ㅠㅠ
     
 
 
