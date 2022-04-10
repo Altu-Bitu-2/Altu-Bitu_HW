@@ -9,12 +9,12 @@ input = sys.stdin.readline
 t = int(input()) # 테스트케이스 개수 입력
 sum = 0 # 비용의 합 초기화
 
-for i in range(t): # 테스트케이스 개수만큼 반복
+for _ in range(t): # 테스트케이스 개수만큼 반복
     k = int(input()) # 소설을 구성하는 장 수(파일 개수)
     file_list = list(map(int, input().split())) # 파일들의 크기 리스트로 입력받기
     # file_list.sort()
     heapq.heapify(file_list) # 리스트를 최소 힙으로 변경
-    for i in range(k-1): # k-1번 동안 반복(2개 pop하고 pop한 값 2개 더해서 다시 push하는 방식)
+    for _ in range(k-1): # k-1번 동안 반복(2개 pop하고 pop한 값 2개 더해서 다시 push하는 방식)
         first_small = heapq.heappop(file_list) # 가장 작은 파일 pop후 변수에 저장
         second_small = heapq.heappop(file_list) # 2번째로 작은 파일 pop후 변수에 저장
         temp = first_small + second_small # 가장 작은 파일과 2번째로 작은 파일 더하기
